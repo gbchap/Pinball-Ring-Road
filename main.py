@@ -22,14 +22,28 @@ class Piece:
         self.rect.move_ip(rel)
 
 
-
 pieces = []
-for i in range(10):
+
+for i in range(3):
     x = random.randint(978, 1120)
     y = random.randint(153, 420)
-    w = 100
-    h = 100
-    piece = pygame.Rect(x, y, w, h)
+    piece = Piece("blue", "assets/pieces/blue.png", (x, y))
+    pieces.append(piece)
+    
+    x = random.randint(978, 1120)
+    y = random.randint(153, 420)
+    piece = Piece("pink", "assets/pieces/pink.png", (x, y))
+    pieces.append(piece)
+
+for i in range(2):
+    x = random.randint(978, 1120)
+    y = random.randint(153, 420)
+    piece = Piece("yellow", "assets/pieces/yellow.png", (x, y))
+    pieces.append(piece)
+    
+    x = random.randint(978, 1120)
+    y = random.randint(153, 420)
+    piece = Piece("orange", "assets/pieces/orange.png", (x, y))
     pieces.append(piece)
 
 
@@ -37,7 +51,7 @@ while running:
     screen.blit(background, (0,0))
     #screen.fill((205,186,244))
     for piece in pieces:    
-        screen.blit(piece.image, (100, 100))
+        screen.blit(piece.image, piece.rect)
 
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
